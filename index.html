@@ -834,7 +834,7 @@
     <input
       type="hidden"
       name="_next"
-      value="https://yourdomain.com/success.html"
+      value="success.html"
     >
 
     <!-- Honeypot Anti-Spam -->
@@ -923,9 +923,11 @@
       Send Inquiry
     </button>
 
+  <!--
     <p class="form-note">
       Your inquiry will be delivered directly to my inbox. I typically respond within 24 hours.
     </p>
+    -->
 
     <p
       class="form-success"
@@ -1073,6 +1075,17 @@
     e.preventDefault();
     document.getElementById('form-success').style.display = 'block';
   }); */
+
+  // clear form after submit
+form.addEventListener('submit', function(e){
+
+  e.preventDefault();
+
+  form.reset();
+
+  window.location.href = "success.html";
+
+});
 
   // command palette
   var cmdkTrigger = document.getElementById('cmdk-trigger');
