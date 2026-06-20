@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Andikan Sampson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#050505;
+    --bg-1:#0a0a0a;
+    --bg-2:#111111;
+    --bg-3:#161616;
+    --accent:#00D4FF;
+    --accent-dim:rgba(0,212,255,0.12);
+    --accent-line:rgba(0,212,255,0.35);
+    --success:#00FF9D;
+    --white:#FFFFFF;
+    --text-1:rgba(255,255,255,0.92);
+    --text-2:rgba(255,255,255,0.62);
+    --text-3:rgba(255,255,255,0.38);
+    --border-1:rgba(255,255,255,0.08);
+    --border-2:rgba(255,255,255,0.14);
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --container:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-0);
+    color:var(--text-1);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer; background:none; border:none; color:inherit;}
+  .wrap{max-width:var(--container); margin:0 auto; padding:0 32px;}
+  ::selection{background:var(--accent); color:var(--bg-0);}
+  :focus-visible{outline:1.5px solid var(--accent); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    color:var(--accent);
+    display:flex; align-items:center; gap:8px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:''; width:14px; height:1px; background:var(--accent);}
+
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; color:var(--white);}
+  .section{padding:120px 0; position:relative;}
+  .section-head{max-width:640px; margin-bottom:64px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,38px); margin-bottom:14px;}
+  .section-head p{color:var(--text-2); font-size:16px; max-width:520px;}
+  .divider{border-top:1px solid var(--border-1);}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    background:rgba(5,5,5,0.72);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border-1);
+  }
+
+  .nav-avatar{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid var(--accent-line);
+}
+
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:600; font-size:15px;}
+  .logo-mark{
+    width:26px; height:26px; border:1px solid var(--accent-line); border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--accent); font-family:var(--font-mono); font-size:12px;
+  }
+  .nav-links{display:flex; align-items:center; gap:34px;}
+  .nav-links a{font-size:13.5px; color:var(--text-2); transition:color .15s ease;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+  .kbtn{
+    display:flex; align-items:center; gap:8px;
+    border:1px solid var(--border-2); border-radius:7px;
+    padding:7px 10px; font-size:12px; color:var(--text-2);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .kbtn:hover{border-color:var(--accent-line); color:var(--white);}
+  .kbtn kbd{font-family:var(--font-mono); font-size:11px; background:var(--bg-2); border:1px solid var(--border-2); border-radius:4px; padding:1px 5px;}
+  .btn{
+    font-size:13.5px; font-weight:500; padding:10px 20px; border-radius:8px;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .2s ease;
+  }
+  .btn-primary{background:var(--accent); color:#001821;}
+  .btn-primary:hover{box-shadow:0 0 0 1px var(--accent), 0 0 24px rgba(0,212,255,0.35); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--border-2); color:var(--text-1);}
+  .btn-ghost:hover{border-color:var(--accent-line); background:var(--accent-dim);}
+  .btn-sm{padding:8px 16px; font-size:13px;}
+  .icon{width:15px; height:15px; flex-shrink:0;}
+  @media (max-width:880px){ .nav-links{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-top:68px; overflow:hidden;}
+  .hero-grid{
+    position:absolute; inset:0; z-index:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 35%, black 10%, transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 35%, black 10%, transparent 75%);
+  }
+  #particles{position:absolute; inset:0; z-index:1; opacity:0.55;}
+  .hero-content{position:relative; z-index:2; padding:80px 0 0;}
+  .hero-content h1{
+    font-size:clamp(38px,6vw,68px); line-height:1.06; letter-spacing:-0.02em;
+    max-width:880px; margin-bottom:26px;
+  }
+  .hero-content h1 .hl{
+    color:var(--accent);
+    background:linear-gradient(180deg, transparent 64%, var(--accent-dim) 64%);
+  }
+  .hero-sub{font-size:17.5px; color:var(--text-2); max-width:560px; margin-bottom:38px;}
+  .hero-cta{display:flex; gap:14px; margin-bottom:88px;}
+
+  .ticker{
+    position:relative; z-index:2; border-top:1px solid var(--border-1); border-bottom:1px solid var(--border-1);
+    overflow:hidden; background:rgba(255,255,255,0.015);
+  }
+  .ticker-track{display:flex; width:max-content; animation:scroll-left 32s linear infinite;}
+  .ticker-track span{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-2);
+    padding:14px 28px; white-space:nowrap; border-right:1px solid var(--border-1);
+  }
+  .ticker-track span b{color:var(--success); font-weight:500;}
+  @keyframes scroll-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- trust ---------- */
+  .trust{padding:80px 0; border-bottom:1px solid var(--border-1);}
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border-1); border:1px solid var(--border-1); border-radius:12px; overflow:hidden; margin-bottom:40px;}
+  .stat{background:var(--bg-0); padding:30px 28px;}
+  .stat .num{font-family:var(--font-display); font-size:34px; color:var(--white); font-weight:600;}
+  .stat .num .accent{color:var(--accent);}
+  .stat .label{font-size:13px; color:var(--text-2); margin-top:6px;}
+  .role-strip{display:flex; flex-wrap:wrap; gap:10px;}
+  .pill{
+    font-family:var(--font-mono); font-size:12px; color:var(--text-2);
+    border:1px solid var(--border-2); border-radius:20px; padding:7px 14px;
+  }
+  @media (max-width:760px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;}
+  .about-grid p{color:var(--text-2); margin-bottom:18px; font-size:15.5px; max-width:480px;}
+  .about-grid p:last-of-type{margin-bottom:0;}
+  .terminal{
+    background:var(--bg-2); border:1px solid var(--border-2); border-radius:12px; overflow:hidden;
+  }
+  .terminal-bar{display:flex; align-items:center; gap:7px; padding:12px 16px; border-bottom:1px solid var(--border-1);}
+  .terminal-bar i{width:9px; height:9px; border-radius:50%; background:var(--border-2);}
+  .terminal-bar span{font-family:var(--font-mono); font-size:11.5px; color:var(--text-3); margin-left:6px;}
+  .terminal-body{padding:22px 20px; font-family:var(--font-mono); font-size:13px; line-height:2.05;}
+  .terminal-body .p{color:var(--accent);}
+  .terminal-body .o{color:var(--text-2); padding-left:14px;}
+  .terminal-body .o b{color:var(--success); font-weight:500;}
+  .cursor{display:inline-block; width:7px; height:14px; background:var(--accent); vertical-align:-2px; animation:blink 1.1s steps(2) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr; gap:48px;} }
+
+  /* ---------- timeline ---------- */
+  .timeline-wrap{position:relative; padding-left:32px; border-left:1px solid var(--border-1);}
+  .timeline-item{position:relative; padding-bottom:40px;}
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-item::before{content:''; position:absolute; left:-37px; top:4px; width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--bg-0), 0 0 0 1px var(--border-2);}
+  .timeline-year{font-family:var(--font-mono); font-size:13px; color:var(--accent); margin-bottom:8px;}
+  .timeline-body h3{font-size:18px; margin-bottom:8px;}
+  .timeline-body p{font-size:14.5px; color:var(--text-2); max-width:560px;}
+
+  /* ---------- expertise ---------- */
+  .exp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border-1); border:1px solid var(--border-1); border-radius:14px; overflow:hidden;}
+  .exp-card{background:var(--bg-0); padding:36px; transition:background .2s ease;}
+  .exp-card:hover{background:var(--bg-1);}
+  .exp-card .ic{width:34px; height:34px; border:1px solid var(--border-2); border-radius:9px; display:flex; align-items:center; justify-content:center; color:var(--accent); margin-bottom:20px;}
+  .exp-card h3{font-size:18px; margin-bottom:14px;}
+  .exp-card ul li{font-size:14px; color:var(--text-2); padding:6px 0; display:flex; gap:10px;}
+  .exp-card ul li::before{content:''; width:4px; height:4px; border-radius:50%; background:var(--accent); margin-top:8px; flex-shrink:0;}
+  @media (max-width:760px){ .exp-grid{grid-template-columns:1fr;} }
+
+  /* ---------- projects ---------- */
+  .proj-card{
+    border:1px solid var(--border-1); border-radius:14px; padding:0; margin-bottom:24px;
+    display:grid; grid-template-columns:1.05fr 1fr; overflow:hidden; transition:border-color .2s ease;
+  }
+  .proj-card:hover{border-color:var(--border-2);}
+  .proj-media{
+    background:
+      repeating-linear-gradient(135deg, rgba(0,212,255,0.05) 0 2px, transparent 2px 14px),
+      var(--bg-2);
+    border-right:1px solid var(--border-1);
+    min-height:280px; display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .proj-media span{font-family:var(--font-mono); font-size:11.5px; color:var(--text-3); border:1px dashed var(--border-2); padding:8px 14px; border-radius:8px;}
+  .proj-body{padding:34px 36px; display:flex; flex-direction:column;}
+  .proj-tag{font-family:var(--font-mono); font-size:11.5px; color:var(--accent); margin-bottom:14px;}
+  .proj-body h3{font-size:21px; margin-bottom:14px;}
+  .proj-row{font-size:14px; color:var(--text-2); margin-bottom:8px;}
+  .proj-row b{color:var(--text-1); font-weight:500;}
+  .proj-stack{display:flex; flex-wrap:wrap; gap:7px; margin:18px 0 20px;}
+  .chip{font-family:var(--font-mono); font-size:11px; color:var(--text-2); border:1px solid var(--border-2); border-radius:6px; padding:4px 9px;}
+  .proj-impact{font-size:13.5px; color:var(--success); margin-bottom:22px;}
+  .proj-links{display:flex; gap:18px; margin-top:auto;}
+  .proj-links a{font-size:13.5px; display:flex; align-items:center; gap:6px; color:var(--text-1); transition:color .15s ease;}
+  .proj-links a:hover{color:var(--accent);}
+  @media (max-width:860px){ .proj-card{grid-template-columns:1fr;} .proj-media{border-right:none; border-bottom:1px solid var(--border-1); min-height:180px;} }
+
+  /* ---------- lab ---------- */
+  .lab-wrap{border:1px solid var(--border-1); border-radius:14px; padding:40px;}
+  .lab-stats{display:flex; gap:48px; margin-bottom:32px; flex-wrap:wrap;}
+  .lab-stats .stat-mini .num{font-family:var(--font-display); font-size:26px; color:var(--white);}
+  .lab-stats .stat-mini .label{font-size:12.5px; color:var(--text-2); margin-top:4px;}
+  .log{border-top:1px solid var(--border-1); padding-top:22px;}
+  .log-row{display:flex; gap:18px; padding:10px 0; font-family:var(--font-mono); font-size:13px; border-bottom:1px solid rgba(255,255,255,0.04);}
+  .log-row:last-child{border-bottom:none;}
+  .log-time{color:var(--text-3); width:90px; flex-shrink:0;}
+  .log-text{color:var(--text-2);}
+  .log-status{margin-left:auto; color:var(--success); flex-shrink:0;}
+  @media (max-width:600px){ .log-row{flex-wrap:wrap;} .log-status{margin-left:0;} }
+
+  /* ---------- services ---------- */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .svc-card{border:1px solid var(--border-1); border-radius:14px; padding:30px; display:flex; flex-direction:column; transition:border-color .2s ease, transform .2s ease;}
+  .svc-card:hover{border-color:var(--accent-line); transform:translateY(-2px);}
+  .svc-card h3{font-size:17px; margin-bottom:14px;}
+  .svc-price{margin-bottom:18px;}
+  .svc-price .from{display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; color:var(--text-3); margin-bottom:4px;}
+  .svc-price .amt{font-family:var(--font-display); font-size:21px; color:var(--accent); font-weight:600;}
+  .svc-price .ngn{display:block; font-family:var(--font-mono); font-size:12px; color:var(--text-3); margin-top:3px;}
+  .svc-features{margin-bottom:22px; flex-grow:1;}
+  .svc-features li{font-size:13.5px; color:var(--text-2); padding:5px 0; display:flex; gap:9px;}
+  .svc-features li::before{content:''; width:4px; height:4px; border-radius:50%; background:var(--accent); margin-top:8px; flex-shrink:0;}
+  .svc-meta{display:flex; align-items:center; justify-content:space-between; padding-top:18px; border-top:1px solid var(--border-1);}
+  .svc-time{font-family:var(--font-mono); font-size:11.5px; color:var(--text-3);}
+  .svc-cta{font-size:13px; color:var(--accent); display:flex; align-items:center; gap:6px;}
+  .svc-note{font-size:12.5px; color:var(--text-3); margin-top:28px; max-width:680px;}
+  @media (max-width:860px){ .svc-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .svc-grid{grid-template-columns:1fr;} }
+
+  /* ---------- current focus ---------- */
+  .focus-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .focus-card{border:1px solid var(--border-1); border-radius:12px; padding:26px; transition:border-color .2s ease;}
+  .focus-card:hover{border-color:var(--border-2);}
+  .focus-card .dot{width:8px; height:8px; border-radius:50%; background:var(--success); margin-bottom:18px; box-shadow:0 0 0 4px rgba(0,255,157,0.12);}
+  .focus-card h3{font-size:15.5px; margin-bottom:8px;}
+  .focus-card p{font-size:13.5px; color:var(--text-2); line-height:1.6;}
+  @media (max-width:860px){ .focus-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .focus-grid{grid-template-columns:1fr;} }
+
+  /* ---------- stack ---------- */
+  .stack-wrap{display:flex; flex-wrap:wrap; gap:12px;}
+  .stack-chip{
+    border:1px solid var(--border-2); border-radius:9px; padding:13px 20px;
+    font-family:var(--font-mono); font-size:13.5px; color:var(--text-2);
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .stack-chip:hover{border-color:var(--accent-line); color:var(--white); background:var(--accent-dim);}
+
+  /* ---------- vision ---------- */
+  .vision{background:var(--bg-2); border-top:1px solid var(--border-1); border-bottom:1px solid var(--border-1);}
+  .vision .wrap{text-align:center; padding:0;}
+  .vision-text{font-family:var(--font-display); font-size:clamp(24px,3.2vw,36px); line-height:1.42; max-width:900px; margin:0 auto; color:var(--white);}
+  .vision-text .accent{color:var(--accent);}
+
+  /* ---------- contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px;}
+  .contact-grid h2{font-size:clamp(30px,4vw,44px); margin-bottom:18px; max-width:420px;}
+  .contact-grid > div:first-child p{color:var(--text-2); font-size:15.5px; margin-bottom:36px; max-width:400px;}
+  .contact-method{display:flex; align-items:center; gap:14px; padding:16px 0; border-top:1px solid var(--border-1);}
+  .contact-method:last-child{border-bottom:1px solid var(--border-1);}
+  .contact-method .ic{width:36px; height:36px; border:1px solid var(--border-2); border-radius:9px; display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0;}
+  .contact-method .label{font-size:11.5px; color:var(--text-3); font-family:var(--font-mono);}
+  .contact-method .val{font-size:14.5px; color:var(--text-1); margin-top:2px; transition:color .15s ease;}
+  .contact-method:hover .val{color:var(--accent);}
+
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .field{margin-bottom:16px;}
+  .field.full{grid-column:1 / -1;}
+  .field label{display:block; font-size:12.5px; color:var(--text-2); margin-bottom:8px; font-family:var(--font-mono);}
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--bg-2); border:1px solid var(--border-2); border-radius:8px;
+    padding:12px 14px; color:var(--text-1); font-family:var(--font-body); font-size:14px;
+    transition:border-color .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--accent-line); outline:none;}
+  .field textarea{resize:vertical; min-height:100px;}
+  .form-note{font-size:12.5px; color:var(--text-3); margin-top:14px;}
+  .form-success{display:none; font-family:var(--font-mono); font-size:13.5px; color:var(--success); padding:14px 0; border-top:1px solid var(--border-1); margin-top:8px;}
+  @media (max-width:860px){ .contact-grid{grid-template-columns:1fr; gap:48px;} .form-grid{grid-template-columns:1fr;} }
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--border-1); padding:50px 0;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:36px;}
+  .foot-links{display:flex; gap:28px; flex-wrap:wrap;}
+  .foot-links a{font-size:13.5px; color:var(--text-2); transition:color .15s ease;}
+  .foot-links a:hover{color:var(--white);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:24px; border-top:1px solid var(--border-1); font-size:12.5px; color:var(--text-3); font-family:var(--font-mono);}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- command palette ---------- */
+  .cmdk-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(3px); z-index:500;
+    display:none; align-items:flex-start; justify-content:center; padding-top:14vh;
+  }
+  .cmdk-overlay.open{display:flex;}
+  .cmdk{width:560px; max-width:90vw; background:var(--bg-2); border:1px solid var(--border-2); border-radius:12px; overflow:hidden;}
+  .cmdk-input{display:flex; align-items:center; gap:10px; padding:16px 18px; border-bottom:1px solid var(--border-1);}
+  .cmdk-input input{flex:1; background:none; border:none; color:var(--text-1); font-size:14.5px; font-family:var(--font-body);}
+  .cmdk-input input:focus{outline:none;}
+  .cmdk-list{max-height:280px; overflow-y:auto; padding:8px;}
+  .cmdk-item{display:flex; align-items:center; justify-content:space-between; padding:11px 14px; border-radius:8px; font-size:13.5px; color:var(--text-2);}
+  .cmdk-item span.k{color:var(--text-3); font-family:var(--font-mono); font-size:11px;}
+  .cmdk-item.active{background:var(--accent-dim); color:var(--white);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo">
+      <img src="images/profile image.jpg"
+       alt="Andikan Sampson"
+       class="nav-avatar">
+      Andikan Sampson</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Projects</a>
+      <a href="#lab">Lab</a>
+      <a href="#services">Services</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="kbtn" id="cmdk-trigger" aria-label="Open command palette"><span>Search</span><kbd>⌘K</kbd></button>
+      <a href="#contact" class="btn btn-primary btn-sm">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="wrap hero-content">
+    <p class="eyebrow">CYBERSECURITY · FULL-STACK · TECHNICAL FOUNDER</p>
+    <h1>Building <span class="hl">secure</span> digital systems for the future.</h1>
+    <p class="hero-sub">Cybersecurity undergraduate, full-stack developer, and technical founder helping businesses, organizations, and startups ship secure, scalable digital experiences — from first commit to production.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Book a discovery call</a>
+      <a href="#projects" class="btn btn-ghost">View projects</a>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+</header>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="wrap">
+    <div class="stat-grid reveal">
+      <div class="stat"><div class="num"><span class="accent">12</span>+</div><div class="label">Projects shipped</div></div>
+      <div class="stat"><div class="num"><span class="accent">30</span>+</div><div class="label">Security labs completed</div></div>
+      <div class="stat"><div class="num"><span class="accent">18</span>+</div><div class="label">Technologies used in production</div></div>
+      <div class="stat"><div class="num"><span class="accent">3</span></div><div class="label">Leadership roles held</div></div>
+    </div>
+    <div class="role-strip reveal">
+      <span class="pill">Church Media Director</span>
+      <span class="pill">Cybersecurity Undergraduate</span>
+      <span class="pill">Technical Founder</span>
+      <span class="pill">Full-Stack Developer</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section divider" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="eyebrow">// 01 — ABOUT</p>
+        <h2 style="font-size:clamp(28px,3.4vw,38px); margin-bottom:24px;">I build the systems other people trust without thinking about.</h2>
+        <p>I'm a cybersecurity undergraduate and full-stack developer who got into technology the practical way — by being handed broken systems and asked to fix them, first in a church media booth, then in production codebases.</p>
+        <p>What I build spans secure web applications, internal tools, and the infrastructure behind them. I care less about which framework is trending and more about whether what I ship still works under pressure — a live broadcast, a client's launch day, or an attacker probing for the gap nobody checked.</p>
+        <p>My mission is straightforward: make technology that organizations can actually depend on, built by someone who understands both how it breaks and how it's defended.</p>
+      </div>
+      <div class="reveal">
+        <div class="terminal">
+          <div class="terminal-bar"><i></i><i></i><i></i><span>whoami.sh</span></div>
+          <div class="terminal-body">
+            <div><span class="p">$</span> whoami</div>
+            <div class="o">builder · securer · founder</div>
+            <div><span class="p">$</span> background</div>
+            <div class="o">cybersecurity undergrad, self-taught full-stack dev</div>
+            <div><span class="p">$</span> currently</div>
+            <div class="o">shipping client work, running security labs, leading church media systems</div>
+            <div><span class="p">$</span> status</div>
+            <div class="o"><b>available for new projects</b></div>
+            <div><span class="p">$</span> <span class="cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="section divider" id="timeline">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 02 — TIMELINE</p>
+      <h2>How I got here.</h2>
+      <p>Four years of being handed broken systems and asked to fix them — each one teaching the next.</p>
+    </div>
+    <div class="timeline-wrap reveal">
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-body">
+          <h3>Started in media</h3>
+          <p>Took over live broadcast and media systems for a church — first exposure to infrastructure that has to keep working, live, every week.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-body">
+          <h3>Moved into web development</h3>
+          <p>Started building real sites and tools, learning by shipping — first for small organizations, then for paying clients.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-body">
+          <h3>Began formal cybersecurity study</h3>
+          <p>Enrolled as a cybersecurity undergraduate, pairing hands-on lab work with the development skills already in motion.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-body">
+          <h3>Building toward founder</h3>
+          <p>Started Creovixos and began applying security, development, and product thinking toward building something of my own.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERTISE ============ -->
+<section class="section divider" id="expertise">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 03 — EXPERTISE</p>
+      <h2>Four disciplines, one operating system.</h2>
+      <p>Security thinking runs underneath everything I build — it's not a separate add-on service.</p>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp-card">
+        <div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div>
+        <h3>Cybersecurity</h3>
+        <ul>
+          <li>Network security</li>
+          <li>Web application security</li>
+          <li>Security auditing</li>
+          <li>Risk assessment</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6L2 12l6 6M16 6l6 6-6 6"/></svg></div>
+        <h3>Web development</h3>
+        <ul>
+          <li>Frontend development</li>
+          <li>Backend development</li>
+          <li>API integration</li>
+          <li>Performance optimization</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.5"/><path d="M7.5 7.5a7 7 0 000 9M16.5 7.5a7 7 0 010 9M4 4a12 12 0 000 16M20 4a12 12 0 010 16"/></svg></div>
+        <h3>Media technology</h3>
+        <ul>
+          <li>Livestream systems</li>
+          <li>Digital media infrastructure</li>
+          <li>Creative technology</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 16l-2 5 5-2 9.5-9.5a2.1 2.1 0 00-3-3L5 16z"/><path d="M14 6l4 4"/></svg></div>
+        <h3>Startup systems</h3>
+        <ul>
+          <li>Product strategy</li>
+          <li>MVP development</li>
+          <li>Technical architecture</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section divider" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 04 — FEATURED PROJECTS</p>
+      <h2>Recent work, treated as products.</h2>
+      <p>A look at how I approach a brief — from the problem to the shipped solution.</p>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-media"><span>// add project screenshot</span></div>
+      <div class="proj-body">
+        <p class="proj-tag">REAL ESTATE PLATFORM · FULL-STACK</p>
+        <h3>Listings platform built for speed and trust</h3>
+        <p class="proj-row"><b>Problem —</b> agents needed a fast, secure listings site that didn't depend on a slow legacy CMS.</p>
+        <p class="proj-row"><b>Solution —</b> a custom-built platform with optimized search, image delivery, and a hardened admin panel.</p>
+        <div class="proj-stack">
+          <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span><span class="chip">Cloudflare</span>
+        </div>
+        <p class="proj-impact">Impact — sub-1.5s load times, zero security incidents since launch.</p>
+        <div class="proj-links">
+          <a href="#"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>Live demo</a>
+          <a href="#"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.4c0-1 .4-1.7 1-2.2-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.7-2 .2-4 0 0 1.3-.4 4.1 1.6a14 14 0 017.5 0c2.8-2 4.1-1.6 4.1-1.6.9 2 .3 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.3 1 2.6V21"/></svg>GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-media"><span>// add project screenshot</span></div>
+      <div class="proj-body">
+        <p class="proj-tag">THRONE OF SINNERS · CREATIVE WEB APP</p>
+        <h3>An interactive narrative built as a web product</h3>
+        <p class="proj-row"><b>Problem —</b> a story-driven concept needed a home that felt like an app, not a blog post.</p>
+        <p class="proj-row"><b>Solution —</b> a custom reading experience with chapter navigation, progress tracking, and motion design.</p>
+        <div class="proj-stack">
+          <span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Framer Motion</span>
+        </div>
+        <p class="proj-impact">Impact — built and shipped solo end-to-end, from concept to deployment.</p>
+        <div class="proj-links">
+          <a href="#"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>Live demo</a>
+          <a href="#"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.4c0-1 .4-1.7 1-2.2-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.7-2 .2-4 0 0 1.3-.4 4.1 1.6a14 14 0 017.5 0c2.8-2 4.1-1.6 4.1-1.6.9 2 .3 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.3 1 2.6V21"/></svg>GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-media"><span>// add project screenshot</span></div>
+      <div class="proj-body">
+        <p class="proj-tag">CREOVIXOS · STARTUP CONCEPT</p>
+        <h3>A founder-stage product, designed and architected</h3>
+        <p class="proj-row"><b>Problem —</b> an early-stage idea needed a credible MVP to test with real users and investors.</p>
+        <p class="proj-row"><b>Solution —</b> brand system, technical architecture, and a working MVP built for fast iteration.</p>
+        <div class="proj-stack">
+          <span class="chip">Next.js</span><span class="chip">Supabase</span><span class="chip">Tailwind CSS</span>
+        </div>
+        <p class="proj-impact">Impact — MVP delivered in under six weeks from concept to demo-ready.</p>
+        <div class="proj-links">
+          <a href="#"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M9 7h8v8"/></svg>Live demo</a>
+          <a href="#"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.4c0-1 .4-1.7 1-2.2-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.7-2 .2-4 0 0 1.3-.4 4.1 1.6a14 14 0 017.5 0c2.8-2 4.1-1.6 4.1-1.6.9 2 .3 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.3 1 2.6V21"/></svg>GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECURITY LAB ============ -->
+<section class="section divider" id="lab">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 05 — SECURITY LAB</p>
+      <h2>Where the cybersecurity side gets proven.</h2>
+      <p>A running log of labs, challenges, and tools — evidence of growth, not just a claim of interest.</p>
+    </div>
+    <div class="lab-wrap reveal">
+      <div class="lab-stats">
+        <div class="stat-mini"><div class="num">30+</div><div class="label">Labs completed</div></div>
+        <div class="stat-mini"><div class="num">9</div><div class="label">CTF challenges solved</div></div>
+        <div class="stat-mini"><div class="num">14</div><div class="label">Security tools used</div></div>
+      </div>
+      <div class="log">
+        <div class="log-row"><span class="log-time">// recent</span><span class="log-text">Network fundamentals — packet analysis with Wireshark</span><span class="log-status">complete</span></div>
+        <div class="log-row"><span class="log-time">// recent</span><span class="log-text">Web exploitation CTF — SQL injection &amp; auth bypass</span><span class="log-status">top 15%</span></div>
+        <div class="log-row"><span class="log-time">// recent</span><span class="log-text">Personal tool — Python port scanner with reporting</span><span class="log-status">shipped</span></div>
+        <div class="log-row"><span class="log-time">// recent</span><span class="log-text">Web app hardening — OWASP top 10 audit on client project</span><span class="log-status">complete</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section divider" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 06 — SERVICES</p>
+      <h2>Ways to work together.</h2>
+      <p>Starting prices below — final scope is confirmed together before any work begins.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="svc-card">
+        <h3>Business Growth Website</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£500</span><span class="ngn">≈ ₦900,000</span></div>
+        <ul class="svc-features">
+          <li>Multiple pages</li>
+          <li>CMS integration</li>
+          <li>Analytics</li>
+          <li>Security hardening</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">2–3 weeks</span><a href="#contact" class="svc-cta">Book discovery call →</a></div>
+      </div>
+      <div class="svc-card">
+        <h3>Conversion-Focused Landing Page</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£250</span><span class="ngn">≈ ₦450,000</span></div>
+        <ul class="svc-features">
+          <li>Responsive design</li>
+          <li>Fast loading</li>
+          <li>SEO basics</li>
+          <li>Contact forms</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">5–7 days</span><a href="#contact" class="svc-cta">Request proposal →</a></div>
+      </div>
+      <div class="svc-card">
+        <h3>Church Digital Presence System</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£400</span><span class="ngn">≈ ₦720,000</span></div>
+        <ul class="svc-features">
+          <li>Livestream systems</li>
+          <li>Church websites</li>
+          <li>Digital infrastructure</li>
+          <li>Media workflows</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">2–4 weeks</span><a href="#contact" class="svc-cta">Schedule consultation →</a></div>
+      </div>
+      <div class="svc-card">
+        <h3>Real Estate Platform</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£800</span><span class="ngn">≈ ₦1,440,000</span></div>
+        <ul class="svc-features">
+          <li>Listings &amp; search</li>
+          <li>Admin tooling</li>
+          <li>Fast image delivery</li>
+          <li>Built to scale</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">4–6 weeks</span><a href="#contact" class="svc-cta">Book discovery call →</a></div>
+      </div>
+      <div class="svc-card">
+        <h3>Custom Web Applications</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£1,500</span><span class="ngn">≈ ₦2,700,000</span></div>
+        <ul class="svc-features">
+          <li>Dashboards</li>
+          <li>SaaS MVPs</li>
+          <li>Internal tools</li>
+          <li>Custom integrations</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">4–8 weeks</span><a href="#contact" class="svc-cta">Discuss project →</a></div>
+      </div>
+      <div class="svc-card">
+        <h3>Cybersecurity Assessment</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£150</span><span class="ngn">≈ ₦270,000</span></div>
+        <ul class="svc-features">
+          <li>Basic website review</li>
+          <li>Security checklist</li>
+          <li>Risk report</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">3–5 days</span><a href="#contact" class="svc-cta">Request assessment →</a></div>
+      </div>
+    </div>
+    <p class="svc-note reveal">Final pricing depends on project scope, features, integrations, timelines, and security requirements. Naira amounts are an approximate guide at current exchange rates and may shift — your quote is confirmed in writing, in your preferred currency, before any work begins.</p>
+  </div>
+</section>
+
+<!-- ============ CURRENT FOCUS ============ -->
+<section class="section divider" id="focus">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 07 — CURRENT FOCUS</p>
+      <h2>What I'm working on right now.</h2>
+      <p>No client roster to show yet — here's where the time is actually going.</p>
+    </div>
+    <div class="focus-grid reveal">
+      <div class="focus-card">
+        <div class="dot"></div>
+        <h3>Cybersecurity research</h3>
+        <p>Running labs and CTF challenges, logged in the Security Lab above.</p>
+      </div>
+      <div class="focus-card">
+        <div class="dot"></div>
+        <h3>Building Creovixos</h3>
+        <p>Architecting and shipping the MVP for an early-stage product idea.</p>
+      </div>
+      <div class="focus-card">
+        <div class="dot"></div>
+        <h3>Church media infrastructure</h3>
+        <p>Maintaining and improving the livestream and broadcast systems I run weekly.</p>
+      </div>
+      <div class="focus-card">
+        <div class="dot"></div>
+        <h3>Client web development</h3>
+        <p>Taking on a limited number of new web and security projects each month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STACK ============ -->
+<section class="section divider" id="stack">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">// 08 — STACK</p>
+      <h2>Tools I build and defend with.</h2>
+    </div>
+    <div class="stack-wrap reveal">
+      <span class="stack-chip">React</span>
+      <span class="stack-chip">TypeScript</span>
+      <span class="stack-chip">Next.js</span>
+      <span class="stack-chip">Node.js</span>
+      <span class="stack-chip">Python</span>
+      <span class="stack-chip">PostgreSQL</span>
+      <span class="stack-chip">Supabase</span>
+      <span class="stack-chip">Cloudflare</span>
+      <span class="stack-chip">Git</span>
+      <span class="stack-chip">Linux</span>
+      <span class="stack-chip">Wireshark</span>
+      <span class="stack-chip">Burp Suite</span>
+      <span class="stack-chip">Nmap</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION ============ -->
+<section class="section vision">
+  <div class="wrap">
+    <p class="vision-text reveal">I'm building toward a future where <span class="accent">Africa's digital infrastructure</span> is designed, secured, and owned by the people building on it — not imported, not an afterthought.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">// 09 — CONTACT</p>
+        <h2>Let's build something exceptional.</h2>
+        <p>Tell me what you're working on. I respond to every serious inquiry within 24 hours.</p>
+
+        <a class="contact-method" href="mailto:cyberdominions@gmail.com">
+         <div class="ic">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="M3 7l9 6 9-6"/>
+         </svg>
+       </div>
+     <div>
+       <div class="label">EMAIL</div>
+        <div class="val">Send an Email</div>
+       </div>
+      </a>
+
+
+        <a class="contact-method"
+          href="https://wa.me/2348162963975"
+          target="_blank"
+          rel="noopener noreferrer">
+       <div class="ic">
+         <svg class="icon" viewBox="0 0 24 24"     fill="none" stroke="currentColor" stroke-width="1.5">
+           <path d="M21 12a9 9 0 10-4 7.5L21 21l-1.4-4A9 9 0 0021 12z"/>
+         </svg>
+      </div>
+         <div>
+           <div class="label">WHATSAPP</div>
+           <div class="val">Start WhatsApp Chat</div>
+         </div>
+        </a>
+
+
+        <a class="contact-method" href="https://www.linkedin.com/in/andikan-sampson-415985129/">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 17v-6M7 8.5v.01M12 17v-4a2 2 0 014 0v4M12 13v0"/></svg></div>
+          <div><div class="label">LINKEDIN</div><div class="val">Connect on LinkedIn</div></div>
+        </a>
+
+
+        <a class="contact-method" href="https://github.com/cyberdominion">
+          <div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.4c0-1 .4-1.7 1-2.2-3.3-.4-6.8-1.6-6.8-7.3 0-1.6.6-3 1.5-4-.2-.4-.7-2 .2-4 0 0 1.3-.4 4.1 1.6a14 14 0 017.5 0c2.8-2 4.1-1.6 4.1-1.6.9 2 .3 3.6.2 4 1 1 1.5 2.4 1.5 4 0 5.7-3.5 6.9-6.8 7.3.5.5 1 1.3 1 2.6V21"/></svg></div>
+          <div><div class="label">GITHUB</div><div class="val">View Github Profile</div></div>
+        </a>
+      </div>
+
+      <div class="reveal">
+  <form
+    id="inquiry-form"
+    action="https://formsubmit.co/cyberdominions@gmail.com"
+    method="POST"
+  >
+
+    <!-- FormSubmit Configuration -->
+    <input
+      type="hidden"
+      name="_subject"
+      value="New Builder's Loop Inquiry"
+    >
+
+    <input
+      type="hidden"
+      name="_template"
+      value="table"
+    >
+
+    <input
+      type="hidden"
+      name="_next"
+      value="https://yourdomain.com/success.html"
+    >
+
+    <!-- Honeypot Anti-Spam -->
+    <input
+      type="text"
+      name="_honey"
+      style="display:none"
+    >
+
+    <!-- Disable FormSubmit CAPTCHA -->
+    <input
+      type="hidden"
+      name="_captcha"
+      value="false"
+    >
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Your full name"
+        >
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+        >
+      </div>
+
+      <div class="field">
+        <label>Organization</label>
+        <input
+          type="text"
+          name="organization"
+          placeholder="Company, Church, Ministry, Startup..."
+        >
+      </div>
+
+      <div class="field">
+        <label>Project Type</label>
+        <select name="project_type">
+          <option value="Business Website">Business website</option>
+          <option value="Landing Page">Landing page</option>
+          <option value="Church Technology System">Church technology system</option>
+          <option value="Real Estate Platform">Real estate platform</option>
+          <option value="Custom Web Application">Custom web application</option>
+          <option value="Cybersecurity Consultation">Cybersecurity consultation</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Budget</label>
+        <select name="budget">
+          <option value="Under £150">Under £150</option>
+          <option value="£150 - £500">£150 – £500</option>
+          <option value="£500 - £1,500">£500 – £1,500</option>
+          <option value="£1,500+">£1,500+</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label>Project Details</label>
+        <textarea
+          name="message"
+          required
+          placeholder="Tell me about your project, goals, timeline, features required, and any other details..."
+        ></textarea>
+      </div>
+
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      style="width:100%; justify-content:center;"
+    >
+      Send Inquiry
+    </button>
+
+    <p class="form-note">
+      Your inquiry will be delivered directly to my inbox. I typically respond within 24 hours.
+    </p>
+
+    <p
+      class="form-success"
+      id="form-success"
+      style="display:none;"
+    >
+      ✓ Message received. I'll respond within 24 hours.
+    </p>
+
+  </form>
+</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="#home" class="logo">
+        <img src="images/profile image.jpg"
+       alt="Andikan Sampson"
+       class="nav-avatar">Andikan Sampson</a>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Available Worldwide · Remote Collaboration</span>
+      <span id="copyright"></span>
+    </div>
+  </div>
+</footer>
+
+<div class="cmdk-overlay" id="cmdk-overlay">
+  <div class="cmdk">
+    <div class="cmdk-input">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="cmdk-input" placeholder="Jump to a section..." autocomplete="off">
+    </div>
+    <div class="cmdk-list" id="cmdk-list"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // copyright year
+  document.getElementById('copyright').textContent = '© ' + new Date().getFullYear() + ' Andikan Sampson. All rights reserved.';
+
+  // ticker content
+  var tickerItems = [
+    'SYSTEM STATUS: <b>OPERATIONAL</b>', 'UPTIME 99.98%', 'LAST SECURITY AUDIT: 3D AGO',
+    'ACTIVE PROJECTS: 4', 'THREAT LEVEL: <b>LOW</b>', 'BUILD: PASSING'
+  ];
+  var track = document.getElementById('ticker-track');
+  var html = '';
+  for (var r = 0; r < 2; r++){
+    tickerItems.forEach(function(t){ html += '<span>' + t + '</span>'; });
+  }
+  track.innerHTML = html;
+
+  // scroll reveal
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  // particle network (hero only, paused offscreen, skipped on reduced motion)
+  var canvas = document.getElementById('particles');
+  if (canvas && !prefersReduced){
+    var ctx = canvas.getContext('2d');
+    var hero = document.getElementById('home');
+    var nodes = [];
+    var running = false;
+    var rafId = null;
+
+    function size(){
+      canvas.width = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+    }
+    function init(){
+      size();
+      nodes = [];
+      var count = Math.min(42, Math.floor((canvas.width * canvas.height) / 38000));
+      for (var i = 0; i < count; i++){
+        nodes.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.18
+        });
+      }
+    }
+    function frame(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < nodes.length; i++){
+        var n = nodes[i];
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+        if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+      }
+      for (var i = 0; i < nodes.length; i++){
+        for (var j = i + 1; j < nodes.length; j++){
+          var a = nodes[i], b = nodes[j];
+          var dx = a.x - b.x, dy = a.y - b.y;
+          var dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 140){
+            ctx.strokeStyle = 'rgba(0,212,255,' + (0.12 * (1 - dist / 140)) + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = 'rgba(0,212,255,0.55)';
+        ctx.beginPath(); ctx.arc(nodes[i].x, nodes[i].y, 1.6, 0, Math.PI * 2); ctx.fill();
+      }
+      if (running) rafId = requestAnimationFrame(frame);
+    }
+    function start(){ if (!running){ running = true; frame(); } }
+    function stop(){ running = false; if (rafId) cancelAnimationFrame(rafId); }
+
+    init();
+    var heroObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.isIntersecting ? start() : stop(); });
+    }, { threshold: 0 });
+    heroObserver.observe(hero);
+    window.addEventListener('resize', function(){ init(); });
+  }
+
+  // contact form (UI only)
+  /* 
+  var form = document.getElementById('inquiry-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+  }); */
+
+  // command palette
+  var cmdkTrigger = document.getElementById('cmdk-trigger');
+  var cmdkOverlay = document.getElementById('cmdk-overlay');
+  var cmdkInput = document.getElementById('cmdk-input');
+  var cmdkList = document.getElementById('cmdk-list');
+  var items = [
+    { label: 'Home', target: '#home' },
+    { label: 'About', target: '#about' },
+    { label: 'Timeline', target: '#timeline' },
+    { label: 'Expertise', target: '#expertise' },
+    { label: 'Projects', target: '#projects' },
+    { label: 'Security lab', target: '#lab' },
+    { label: 'Services', target: '#services' },
+    { label: 'Current focus', target: '#focus' },
+    { label: 'Tech stack', target: '#stack' },
+    { label: 'Contact', target: '#contact' }
+  ];
+  function renderList(filter){
+    cmdkList.innerHTML = '';
+    items.filter(function(it){ return it.label.toLowerCase().indexOf((filter||'').toLowerCase()) > -1; })
+      .forEach(function(it, idx){
+        var div = document.createElement('div');
+        div.className = 'cmdk-item' + (idx === 0 ? ' active' : '');
+        div.innerHTML = '<span>' + it.label + '</span><span class="k">↵</span>';
+        div.addEventListener('click', function(){ go(it.target); });
+        cmdkList.appendChild(div);
+      });
+  }
+  function openCmdk(){ cmdkOverlay.classList.add('open'); cmdkInput.value = ''; renderList(''); cmdkInput.focus(); }
+  function closeCmdk(){ cmdkOverlay.classList.remove('open'); }
+  function go(target){
+    closeCmdk();
+    var el = document.querySelector(target);
+    if (el) el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
+  }
+  cmdkTrigger.addEventListener('click', openCmdk);
+  cmdkOverlay.addEventListener('click', function(e){ if (e.target === cmdkOverlay) closeCmdk(); });
+  cmdkInput.addEventListener('input', function(){ renderList(cmdkInput.value); });
+  cmdkInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter'){ var first = cmdkList.querySelector('.cmdk-item'); if (first) first.click(); }
+    if (e.key === 'Escape'){ closeCmdk(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openCmdk(); }
+    if (e.key === 'Escape'){ closeCmdk(); }
+  });
+})();
+</script>
+</body>
+</html>
