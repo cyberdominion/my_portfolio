@@ -118,7 +118,17 @@
   @media (max-width:880px){ .nav-links{display:none;} }
 
   /* ---------- hero ---------- */
-  .hero{position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-top:68px; overflow:hidden;}
+  .hero{
+    position:relative; 
+    min-height:100vh; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center; 
+    padding-top:68px;
+    padding-left: 25px; 
+    padding-right: 25px;
+    overflow:hidden;
+  }
   .hero-grid{
     position:absolute; inset:0; z-index:0;
     background-image:
@@ -139,7 +149,17 @@
     background:linear-gradient(180deg, transparent 64%, var(--accent-dim) 64%);
   }
   .hero-sub{font-size:17.5px; color:var(--text-2); max-width:560px; margin-bottom:38px;}
-  .hero-cta{display:flex; gap:14px; margin-bottom:88px;}
+  .hero-cta{display:flex;
+    flex-direction: column;
+    gap:10px; 
+    margin-bottom:88px;
+  }
+
+  .cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* prevents breaking on small screens */
+}
 
   .ticker{
     position:relative; z-index:2; border-top:1px solid var(--border-1); border-bottom:1px solid var(--border-1);
@@ -310,6 +330,13 @@
   }
   .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--accent-line); outline:none;}
   .field textarea{resize:vertical; min-height:100px;}
+  .form-hint {
+  margin-top: 2px;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 320px;
+  line-height: 1.4;
+}
   .form-note{font-size:12.5px; color:var(--text-3); margin-top:14px;}
   .form-success{display:none; font-family:var(--font-mono); font-size:13.5px; color:var(--success); padding:14px 0; border-top:1px solid var(--border-1); margin-top:8px;}
   @media (max-width:860px){ .contact-grid{grid-template-columns:1fr; gap:48px;} .form-grid{grid-template-columns:1fr;} }
@@ -375,10 +402,18 @@
   <div class="wrap hero-content">
     <p class="eyebrow">CYBERSECURITY · FULL-STACK · TECHNICAL FOUNDER</p>
     <h1>Building <span class="hl">secure</span> digital systems for the future.</h1>
-    <p class="hero-sub">Cybersecurity undergraduate, full-stack developer, and technical founder helping businesses, organizations, and startups ship secure, scalable digital experiences — from first commit to production.</p>
+    <p class="hero-sub">Cybersecurity practitioner, full-stack developer, and technical founder helping businesses, organizations, and startups ship secure, scalable digital experiences — from first commit to production.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Book a discovery call</a>
-      <a href="#projects" class="btn btn-ghost">View projects</a>
+
+      <div class="cta-buttons">
+       <a href="#contact" class="btn btn-primary">Get a Free Website Mockup</a>
+       <a href="#projects" class="btn btn-ghost">View projects</a>
+      </div>
+
+       <p class="form-hint">
+        We’ll design a sample homepage for your business in 24–48 hours.
+      </p>
+
     </div>
   </div>
   <div class="ticker" aria-hidden="true">
@@ -411,7 +446,7 @@
       <div class="reveal">
         <p class="eyebrow">// 01 — ABOUT</p>
         <h2 style="font-size:clamp(28px,3.4vw,38px); margin-bottom:24px;">I build the systems other people trust without thinking about.</h2>
-        <p>I'm a cybersecurity undergraduate and full-stack developer who got into technology the practical way — by being handed broken systems and asked to fix them, first in a church media booth, then in production codebases.</p>
+        <p>Founder, Cyber Dominion Web Solutions. I'm a cybersecurity practitioner and full-stack developer who got into technology the practical way — by being handed broken systems and asked to fix and secure them, first in a church media booth, then in production codebases.</p>
         <p>What I build spans secure web applications, internal tools, and the infrastructure behind them. I care less about which framework is trending and more about whether what I ship still works under pressure — a live broadcast, a client's launch day, or an attacker probing for the gap nobody checked.</p>
         <p>My mission is straightforward: make technology that organizations can actually depend on, built by someone who understands both how it breaks and how it's defended.</p>
       </div>
@@ -422,7 +457,7 @@
             <div><span class="p">$</span> whoami</div>
             <div class="o">builder · securer · founder</div>
             <div><span class="p">$</span> background</div>
-            <div class="o">cybersecurity undergrad, self-taught full-stack dev</div>
+            <div class="o">cybersecurity enthusiast, self-taught full-stack dev</div>
             <div><span class="p">$</span> currently</div>
             <div class="o">shipping client work, running security labs, leading church media systems</div>
             <div><span class="p">$</span> status</div>
@@ -620,11 +655,24 @@
 <section class="section divider" id="services">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">// 06 — SERVICES</p>
+      <p class="eyebrow">// 07 — SERVICES</p>
       <h2>Ways to work together.</h2>
       <p>Starting prices below — final scope is confirmed together before any work begins.</p>
     </div>
     <div class="svc-grid reveal">
+
+      <div class="svc-card">
+        <h3>Business Website Launch Package</h3>
+        <div class="svc-price"><span class="from">Starting from</span><span class="amt">£85</span><span class="ngn">≈ ₦150,000</span></div>
+        <ul class="svc-features">
+          <li>Mobile Responsive design</li>
+          <li>WhatsApp integration</li>
+          <li>Basic SEO</li>
+          <li>Contact forms</li>
+        </ul>
+        <div class="svc-meta"><span class="svc-time">5–7 days</span><a href="#contact" class="svc-cta">Request proposal →</a></div>
+      </div>
+
       <div class="svc-card">
         <h3>Business Growth Website</h3>
         <div class="svc-price"><span class="from">Starting from</span><span class="amt">£500</span><span class="ngn">≈ ₦900,000</span></div>
@@ -642,8 +690,9 @@
         <ul class="svc-features">
           <li>Responsive design</li>
           <li>Fast loading</li>
-          <li>SEO basics</li>
-          <li>Contact forms</li>
+          <li>Enhanced SEO</li>
+          <li>High conversion design</li>
+          <li>Admin panel</li>
         </ul>
         <div class="svc-meta"><span class="svc-time">5–7 days</span><a href="#contact" class="svc-cta">Request proposal →</a></div>
       </div>
@@ -687,6 +736,7 @@
           <li>Basic website review</li>
           <li>Security checklist</li>
           <li>Risk report</li>
+          <li>Cybersecurity awareness staff training</li>
         </ul>
         <div class="svc-meta"><span class="svc-time">3–5 days</span><a href="#contact" class="svc-cta">Request assessment →</a></div>
       </div>
@@ -860,6 +910,19 @@
           name="name"
           required
           placeholder="Your full name"
+        >
+      </div>
+
+      <div class="field">
+        <label>Phone No.</label>
+        <input
+          type="tel"
+          name="phone"
+          pattern="^\+?[0-9\s\-()]{7,20}$"
+          inputmode="numeric"
+          oninput="this.value=this.value.replace(/[^0-9+]/g,'')"
+          required
+          placeholder="+2340000000..."
         >
       </div>
 
